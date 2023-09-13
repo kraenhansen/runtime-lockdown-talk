@@ -1,10 +1,21 @@
 ---
 marp: true
+theme: default
+class: invert
 ---
 
 # Runtime Lockdown 🔐
 
 TypeScript configuration pattern for universal packages.
+
+---
+
+# Kræn Hansen
+
+![bg right](./me.jpg)
+
+Senior Software Engineer @ MongoDB
+`kraenhansen` on 𝕏
 
 ---
 
@@ -135,8 +146,3 @@ See https://nodejs.org/api/packages.html#conditional-exports
 - `"lib": ["ES2022"]`
 - `"include": ["."]`
 - `"exclude": []`
-
----
-
-- Reference a node API - see the missing @types/node package
-- Install @types/node and see how everything gets access to Node APIs
