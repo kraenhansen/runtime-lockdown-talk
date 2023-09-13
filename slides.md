@@ -15,6 +15,8 @@ TypeScript configuration pattern for universal packages.
 ![bg right](./me.jpg)
 
 Senior Software Engineer @ MongoDB
+Contributing to the Realm JS SDK
+
 `kraenhansen` on 𝕏
 
 ---
@@ -25,6 +27,21 @@ Senior Software Engineer @ MongoDB
 - Platform
 - Environment
 - JS engine
+
+---
+
+# Runtime specific APIs
+
+## Globals
+- `window`
+- `navigator`
+- `process`
+- `fetch`
+- `console.log`
+
+## Packages
+- `import fs from "node:fs"`
+- `import { Platform } from "react-native"`
 
 ---
 
