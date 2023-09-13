@@ -21,12 +21,17 @@ Contributing to the Realm JS SDK
 
 ---
 
-# What's a runtime?
+# What is a runtime?
 
-- Runtime
-- Platform
-- Environment
-- JS engine
+Sometimes called "platform" or "environment".
+
+Entails a JavaScript engine, such as
+- V8 *(used by Chrome, Node.js, Electron, ...)*
+- JavaScript Core *(used by Safari, WebKit browsers and some React Native apps)*
+- Hermes *(used by most React Native apps)*
+- SpiderMonkey *(used by Firefox)*
+- Chakra *(used by Internet Explorer)*
+- ...
 
 ---
 
@@ -101,7 +106,7 @@ const fetch = nodeRequire("node-fetch");
 
 ---
 
-# Conditional exports 🎉
+# Conditional exports 💙
 
 ```json
 {
@@ -121,11 +126,11 @@ See https://nodejs.org/api/packages.html#conditional-exports
 
 # Example package
 
-- `my-lib` - A library package with Node.js and browser dependent code.
+- `my-lib` - A library package with Node.js and browser dependent code:
   - Uses conditional exports.
   - Uses TypeScript "Project References".
-  - Uses position 
-- `my-app` - Vite + React app consuming `my-lib`.
+  - Leverages specific tsconfig.json locations (for VS Code support).
+- `my-app` - A Vite + React app consuming `my-lib`.
 
 ---
 
