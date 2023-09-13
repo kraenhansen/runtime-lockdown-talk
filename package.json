@@ -1,0 +1,17 @@
+{
+  "name": "runtime-lockdown-talk",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Runtime Lockdown talk",
+  "author": "Kræn Hansen <mail@kraenhansen.dk>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "marp -p slides.md"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@marp-team/marp-cli": "^3.2.1"
+  }
+}
