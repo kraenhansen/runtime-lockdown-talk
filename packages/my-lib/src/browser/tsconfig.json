@@ -1,12 +1,17 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../../tsconfig-base.json",
   "compilerOptions": {
-    "composite": true,
+    "outDir": "../../dist/browser",
     "lib": [
       "ES2022",
       "DOM"
+    ],
+    "types": [
+      "my-lib/common"
     ]
   },
   "include": ["."],
-  "exclude": []
+  "references": [
+    { "path": "../common" }
+  ]
 }

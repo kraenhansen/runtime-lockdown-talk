@@ -2,16 +2,23 @@
   "name": "my-lib",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "description": "A universal package",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "node": "./dist/node/index.js",
-    "browser": "./dist/browser/index.js"
+    ".": {
+      "node": "./dist/node/index.js",
+      "browser": "./dist/browser/index.js",
+      "types": "./dist/common/index.d.ts"
+    },
+    "./common": {
+      "types": "./dist/common/index.d.ts",
+      "default": "./dist/common/index.js"
+    }
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --build"
   },
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "^20.6.0"
   }
 }

@@ -1,5 +1,5 @@
-import { greeting } from "..";
+import { greeting } from "my-lib/common";
 
 greeting.where = "browser " + navigator.userAgent;
 
-export * from "..";
+export * from "my-lib/common";

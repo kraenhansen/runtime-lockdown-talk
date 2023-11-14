@@ -112,9 +112,11 @@ const fetch = nodeRequire("node-fetch");
 {
   // ...
   "exports": {
-    "types": "./dist/index.d.ts",
-    "node": "./dist/node/index.js",
-    "browser": "./dist/browser/index.js"
+    ".": {
+      "node": "./dist/node/index.js",
+      "browser": "./dist/browser/index.js",
+      "types": "./dist/common/index.d.ts"
+    },
   }
   // ...
 }
@@ -124,47 +126,79 @@ See https://nodejs.org/api/packages.html#conditional-exports
 
 ---
 
+# Subpath exports 💙
+
+```typescript
+import * from "my-lib/common";
+```
+
+```json
+{
+  // ...
+  "exports": {
+    "./common": {
+      "types": "./dist/common/index.d.ts",
+      "default": "./dist/common/index.js"
+    }
+  }
+  // ...
+}
+```
+
+See https://nodejs.org/api/packages.html#subpath-exports
+
+---
+
 # Example package
 
 - `my-lib` - A library package with Node.js and browser dependent code:
   - Uses conditional exports.
+  - Uses subpath export of "common" / platform independent code.
   - Uses TypeScript "Project References".
   - Leverages specific tsconfig.json locations (for VS Code support).
 - `my-app` - A Vite + React app consuming `my-lib`.
 
 ---
 
-# Root `tsconfig.json`
+# Root `tsconfig-base.json`
 
 - Default compiler options
-- `references` to the other files
+- `"types": []`
+- `"lib": [ "es2022" ]`
+- `"noResolve": true`
 
 ---
 
-# `./src/tsconfig.json`
+# Root `tsconfig.json`
+
+- `files: []` as it has no files of its own
+- `references` to the platform specific projects
+
+---
+
+# `src/common/tsconfig.json`
 
 - For common, runtime independent code
 - `"types": []`
 - `"lib": ["ES2022"]`
 - `"include": ["."]`
-- `"exclude": ["./browser", "./node"]`
 
 ---
 
-# `./src/browser/tsconfig.json`
+# `src/browser/tsconfig.json`
 
 - For Node.js dependent code
+- `"outDir": "../../dist/browser"`
 - `"types": []`
 - `"lib": ["ES2022", "DOM"]`
 - `"include": ["."]`
-- `"exclude": []`
 
 ---
 
-# `./src/node/tsconfig.json`
+# `src/node/tsconfig.json`
 
 - For Node.js dependent code
+- `"outDir": "../../dist/node"`
 - `"types": ["node"]`
 - `"lib": ["ES2022"]`
 - `"include": ["."]`
-- `"exclude": []`

@@ -1,11 +1,15 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../../tsconfig-base.json",
   "compilerOptions": {
-    "composite": true,
+    "outDir": "../../dist/node",
+    "noResolve": false,
     "types": [
-      "node"
+      "node",
+      "my-lib/common"
     ]
   },
   "include": ["."],
-  "exclude": []
+  "references": [
+    { "path": "../common" }
+  ]
 }
