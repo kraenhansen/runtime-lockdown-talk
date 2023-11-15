@@ -15,7 +15,7 @@ TypeScript configuration pattern for universal packages.
 ![bg right](./me.jpg)
 
 Senior Software Engineer @ MongoDB
-Contributing to the Realm JS SDK
+Contributing to the Atlas Device SDK (formerly Realm JS)
 
 `kraenhansen` on 𝕏
 
